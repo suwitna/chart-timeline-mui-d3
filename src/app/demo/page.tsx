@@ -101,15 +101,15 @@ export default function DemoPage() {
             }}
           >
             <MachineItem
-              log={log}                     // (1) ข้อมูล JSON
-              startDate={startDate}         // (2) วันที่เริ่มต้น YYYY-MM-DD
-              numDays={numDays}             // (3) จำนวนวันที่ต้องการ 
-              chartHeight={50}              // (4) ความสูงของตัว Timeline
-              startHour="08:00:00"          // (5) เวลาเริ่มต้นของวัน
-              endHour="08:00:00"            // (6) เวลาสิ้นสุดของวัน
-              showTooltip={true}            // (7) แสดงทูลทิป
-              showTimeScale={true}          // (8) แสดงเวลา
-              highlightRanges = {[          // (9) เวลาพัก
+              log={log}                     // (1) ข้อมูล JSON -->(Required)
+              startDate={startDate}         // (2) วันที่เริ่มต้น YYYY-MM-DD -->(Required)
+              numDays={numDays}             // (3) จำนวนวันที่ต้องการ -->(Required)
+              chartHeight={50}              // (4) ความสูงของตัว Timeline -->(Optional)
+              startHour="08:00:00"          // (5) เวลาเริ่มต้นของวัน -->(Optional)
+              endHour="08:00:00"            // (6) เวลาสิ้นสุดของวัน -->(Optional)
+              showTooltip={true}            // (7) แสดงทูลทิป -->(Optional)
+              showTimeScale={true}          // (8) แสดงเวลา -->(Optional)
+              highlightRanges = {[          // (9) เวลาพัก -->(Optional)
                     { start: '00:00:00', end: '01:00:00', color: '#FFD600' },
                     { start: '03:00:00', end: '03:15:00', color: '#FFD600' },
                     { start: '05:00:00', end: '05:30:00', color: '#FFD600' },
@@ -118,15 +118,15 @@ export default function DemoPage() {
                     { start: '17:00:00', end: '17:30:00', color: '#FFD600' },
                     { start: '22:00:00', end: '22:15:00', color: '#FFD600' },
                 ]}
-              statusColorMap = {{           // (10) สีของสถานะต่าง
+              statusColorMap = {{           // (10) สีของสถานะต่าง -->(Optional)
                     Run: '#509151ff',
                     Stop: '#c9665fff',
                     UNDEFINED: '#3c3c3cff',
                 }}
-              paddingLeft={30}              // (11) ช่องว่างกับขอบทางซ้าย
-              paddingRight={30}             // (12) ช่องว่ากับของทางขวา
-              showDuration={true}           // (13) แสดงเวลา UNDEFINED
-              showTotalTime={false}         // (14) เวลา UNDEFINEDม 
+              paddingLeft={30}              // (11) ช่องว่างกับขอบทางซ้าย -->(Optional)
+              paddingRight={30}             // (12) ช่องว่ากับของทางขวา -->(Optional)
+              showDuration={true}           // (13) แสดงเวลา UNDEFINED -->(Optional)
+              showTotalTime={false}         // (14) เวลา UNDEFINEDม  -->(Optional)
                                             // true แสดงต่อเนื่องรวมเวลาพัก, 
                                             // false เริ่มนับใหม่หลังเวลาพัก
             />
