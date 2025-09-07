@@ -1,0 +1,37 @@
+MIT License
+
+Copyright (c) 2010-2025 Mike Bostock
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights  
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      
+copies of the Software, and to permit persons to whom the Software is         
+furnished to do so, subject to the following conditions:                       
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.                               
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+SOFTWARE.
+
+---
+
+สัญญาอนุญาตแบบ MIT (ฉบับแปลไทย ไม่เป็นทางการ)
+
+ขออนุญาตให้ทุกคนสามารถใช้ซอฟต์แวร์นี้ได้โดยไม่มีค่าใช้จ่าย  
+รวมถึงสิทธิ์ในการใช้ คัดลอก แก้ไข รวมเข้ากับซอฟต์แวร์อื่น เผยแพร่  
+แจกจ่าย ต่ออนุญาต และ/หรือจำหน่ายซอฟต์แวร์นี้ โดยไม่มีข้อจำกัด  
+ภายใต้เงื่อนไขว่าต้องเก็บประกาศลิขสิทธิ์นี้ไว้ในสำเนาซอฟต์แวร์ทุกชุด
+
+ซอฟต์แวร์นี้ถูกแจกจ่าย “ตามสภาพ” โดยไม่มีการรับประกันใดๆ ทั้งสิ้น  
+ไม่ว่าจะโดยชัดแจ้งหรือโดยนัย ไม่รวมถึงความเหมาะสมในการใช้งาน  
+หรือการไม่มีการละเมิดสิทธิ์ใดๆ ทั้งสิ้น
+
+Mike Bostock (ผู้พัฒนา D3.js)
+https://d3js.org
