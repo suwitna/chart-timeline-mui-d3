@@ -54,6 +54,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ```bash
 npm install d3 dayjs
 
+```
 | Package     | ใช้ทำอะไร                                                |
 | ----------- | -------------------------------------------------------- |
 | `d3`        | ใช้สร้างกราฟ timeline (ผ่าน D3.js)                       |
