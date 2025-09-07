@@ -274,8 +274,9 @@ Timeline 30/08/2025 - 01/09/2025
   />
 ```
 
+
 ### สามารถปรับค่า Default ต่างๆ ได้
-PATH: src/types/machines.ts
+PATH /src/types/machine.ts
 
 ```tsx
 export const MACHINE_LOG_SHIFT_START = '08:00:00';
