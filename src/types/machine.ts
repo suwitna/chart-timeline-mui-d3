@@ -5,12 +5,6 @@ export const MACHINE_LOG_SHIFT_END = '08:00:00'; // ของวันถัด�
 
 export type MachineStatus = 'Run' | 'Stop' | 'UNDEFINED';
 
-export const StatusColorMap: Record<MachineStatus, string> = {
-    Run: '#4caf50',
-    Stop: '#f44336',
-    UNDEFINED: '#212121',
-};
-
 export const defaultStatusColorMap: Record<MachineStatus, string> = {
     Run: '#4caf50',
     Stop: '#f44336',

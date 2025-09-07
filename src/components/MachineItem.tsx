@@ -8,7 +8,6 @@ import { TimeScale } from '@/components/TimeScale';
 import {
     GroupedMachineLog,
     MachineStatus,
-    StatusColorMap,
     defaultStatusColorMap,
     defaultHighlightRanges,
     HighlightRange,
@@ -164,7 +163,7 @@ export const MachineItem: React.FC<MachineItemProps> = ({
     const containerRef = useRef<HTMLDivElement>(null);
 
     // ตรวจสอบว่า shift ข้ามวันไหม เพื่อใช้คำนวณ endDate ให้ถูกต้อง
-    const shiftday = isShiftEndNextDay(startDate, MACHINE_LOG_SHIFT_START, MACHINE_LOG_SHIFT_END);
+    const shiftday = isShiftEndNextDay(startDate, startHour, endHour);
     const addDays = (!shiftday && numDays === 1) ? 0 : numDays;
     console.log('shiftday:', shiftday, ' addDays:', addDays);
 
@@ -288,7 +287,7 @@ export const MachineItem: React.FC<MachineItemProps> = ({
                             status={block.status_name as MachineStatus}
                             scale={scale}
                             height={chartHeight}
-                            color={StatusColorMap[block.status_name as MachineStatus]} // ใช้ status_name เพื่อแม็ปสี
+                            color={statusColorMap[block.status_name as MachineStatus]} // ใช้ status_name เพื่อแม็ปสี
                             xOffset={0}
                             yOffset={0}
                             showTooltip={false}

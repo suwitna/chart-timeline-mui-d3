@@ -133,17 +133,17 @@ export default function Page() {
         {/* Legend */}
         <Box display="flex" alignItems="center" gap={4} mt={1}>
           <Box display="flex" alignItems="center" gap={1}>
-            <Box width={20} height={15} bgcolor="green" border="1px solid #000" />
+            <Box width={20} height={15} bgcolor="#509151ff" border="1px solid #000" />
             <Typography fontSize="0.8rem">RUN</Typography>
           </Box>
 
           <Box display="flex" alignItems="center" gap={1}>
-            <Box width={20} height={15} bgcolor="red" border="1px solid #000" />
+            <Box width={20} height={15} bgcolor="#c9665fff" border="1px solid #000" />
             <Typography fontSize="0.8rem">STOP</Typography>
           </Box>
 
           <Box display="flex" alignItems="center" gap={1}>
-            <Box width={20} height={15} bgcolor="black" border="1px solid #000" />
+            <Box width={20} height={15} bgcolor="#3c3c3cff" border="1px solid #000" />
             <Typography fontSize="0.8rem">M/C OFF</Typography>
           </Box>
         </Box>
@@ -246,13 +246,35 @@ export default function Page() {
                 }}
               >
                 <MachineItem
-                  key={i} // 🔁 force re-render
-                  log={log}
-                  startDate={startDate}
-                  numDays={numDays}
-                  showDuration={true}
-                  showTotalTime={false}
-                  showTooltip={true} />
+                  log={log}                     // (1) ข้อมูล JSON
+                  startDate={startDate}         // (2) วันที่เริ่มต้น YYYY-MM-DD
+                  numDays={numDays}             // (3) จำนวนวันที่ต้องการ 
+                  chartHeight={50}              // (4) ความสูงของตัว Timeline
+                  startHour="08:00:00"          // (5) เวลาเริ่มต้นของวัน
+                  endHour="08:00:00"            // (6) เวลาสิ้นสุดของวัน
+                  showTooltip={true}            // (7) แสดงทูลทิป
+                  showTimeScale={true}          // (8) แสดงเวลา
+                  highlightRanges = {[          // (9) เวลาพัก
+                        { start: '00:00:00', end: '01:00:00', color: '#FFD600' },
+                        { start: '03:00:00', end: '03:15:00', color: '#FFD600' },
+                        { start: '05:00:00', end: '05:30:00', color: '#FFD600' },
+                        { start: '10:00:00', end: '10:15:00', color: '#FFD600' },
+                        { start: '12:00:00', end: '13:00:00', color: '#FFD600' },
+                        { start: '17:00:00', end: '17:30:00', color: '#FFD600' },
+                        { start: '22:00:00', end: '22:15:00', color: '#FFD600' },
+                    ]}
+                  statusColorMap = {{           // (10) สีของสถานะต่าง
+                        Run: '#509151ff',
+                        Stop: '#c9665fff',
+                        UNDEFINED: '#3c3c3cff',
+                    }}
+                  paddingLeft={30}              // (11) ช่องว่างกับขอบทางซ้าย
+                  paddingRight={30}             // (12) ช่องว่ากับของทางขวา
+                  showDuration={true}           // (13) แสดงเวลา UNDEFINED
+                  showTotalTime={false}         // (14) เวลา UNDEFINEDม 
+                                                // true แสดงต่อเนื่องรวมเวลาพัก, 
+                                                // false เริ่มนับใหม่หลังเวลาพัก
+                />
               </Box>
             </Box>
           ))}

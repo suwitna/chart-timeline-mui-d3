@@ -1,41 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
 # Machine Timeline Viewer
 
 โปรเจกต์นี้เป็นระบบแสดงผลสถานะการทำงานของเครื่องจักร (RUN / STOP / OFF) ในรูปแบบ **timeline กราฟ** โดยใช้เทคโนโลยี:
@@ -45,8 +7,36 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - ⚫ **D3.js**
 - 🔵 ข้อมูลแบบ Mock (จากไฟล์ JSON)
 
+## 🔧 Features
+
+- ✅ แสดง Timeline การทำงานของเครื่องจักรแต่ละตัว
+- 📅 เลือกช่วงเวลา (เช่น 1-5 วัน) เพื่อโหลดข้อมูลย้อนหลัง
+- ⏱ แสดงช่วงเวลาเป็นแถบสี:
+  - 🟩 RUN (สีเขียว)
+  - 🟥 STOP (สีแดง)
+  - ⬛ M/C OFF (สีดำ)
+- 📂 ดึงข้อมูลจากไฟล์ JSON ภายใน `/public/data`
+- 🧪 มี Mock API, Status Loading, และ Error Handling
+- ♻️ รีเฟรชข้อมูลด้วยปุ่ม "Load Data"
+
 ---
-### 📦 Packages ที่ต้องติดตั้ง
+
+## 🖼 Screenshot
+
+![Machine Timeline Screenshot](./public/screenshot.png)
+
+---
+
+## 🚀 เริ่มต้นใช้งาน (Getting Started)
+
+```bash
+git clone https://github.com/suwitna/chart-timeline-mui-d3.git
+cd chart-timeline-mui-d3
+npm install
+npm run dev
+```
+
+### 📦 Install Dependency เพิ่มเติม (สำหรับใช้ Component) ในโปรเจกต์อื่น
 
 หากนำ `MachineItem` component ไปใช้ในโปรเจกต์อื่น  
 กรุณาติดตั้ง dependencies ต่อไปนี้:
@@ -65,43 +55,36 @@ npm install d3 dayjs
 ไม่จำเป็นต้องติดตั้ง mssql หรือ msnodesqlv8 เว้นแต่คุณต้องการดึงข้อมูลจาก SQL Server โดยตรง – โปรเจกต์นี้ใช้เพียง mock API (/api/json-log) สำหรับตัวอย่างเท่านั้น
 
 
-
-## 🔧 Features
-
-- ✅ แสดง Timeline การทำงานของเครื่องจักรแต่ละตัว
-- 📅 เลือกช่วงเวลา (1-5 วัน) เพื่อโหลดข้อมูลย้อนหลัง
-- ⏱ แสดงช่วงเวลาเป็นแถบสี:
-  - 🟩 RUN (สีเขียว)
-  - 🟥 STOP (สีแดง)
-  - ⬛ M/C OFF (สีดำ)
-- 📂 ดึงข้อมูลจากไฟล์ JSON ภายใน `/public/data`
-- 🧪 Mock API สำหรับ JSON log
-- ♻️ รีเฟรชข้อมูลด้วยปุ่ม "Load Data"
-
----
-
-## 🖼 Screenshot
-
-![Machine Timeline Screenshot](./public/screenshot.png)
-
----
-
 ## 📁 Project Structure
 
 <pre>
 ```txt
 /src
 ├── app
-│   ├── machine-log         <-- หน้าแสดง timeline
-│   └── api/json-log        <-- mock API สำหรับดึง JSON
+│   ├── api/machine-log
+│   │       ├── api/machine-log  <-- API ดึงข้อมูลจาก MSSQL
+│   │       ├── api/mock-log     <-- mock API สุ่มข้อมูล
+│   │       └── api/json-log     <-- mock API สำหรับดึง JSON
+│   │
+│   ├── cnc/page.tsx             <-- ตัวอย่างหน้าจอติดต่อกับฐานข้อมูล
+│   ├── demo/page.tsx            <-- ตัวอย่างอย่างง่าย
+│   ├── json/page.tsx            <-- ตัวอย่างหน้าจอติดต่อกับ JSON log data ต่อวัน (จากข้อมูลตัวอย่าง)
+│   ├── mock/page.tsx            <-- ตัวอย่างหน้าจอติดต่อกับ Mock data แบบสุ่ม
+│   └── sqltest/page.tsx         <-- ทดสอบติดต่อฐานข้อมูล
 │
 ├── components
-│   ├── MachineItem.tsx     <-- สร้าง timeline graph
-│   ├── MachineStatusBar.tsx <-- แสดงแถบสีรายสถานะ
-│   └── TimeScale.tsx       <-- จัดการ scale/time axis
+│   ├── MachineItem.tsx          <-- สร้าง timeline graph
+│   ├── MachineStatusBar.tsx     <-- แสดงแถบสีรายสถานะ เช่น Run, Stop, UNDEFINED
+│   └── TimeScale.tsx            <-- จัดการ Scale/time x axis
+│
+├── data
+│   └── mockData.ts              <-- ข้อมูลโครงสร้าง JSON, และ Config
+│
+├── types
+│   └── machine.ts               <-- ข้อมูลโครงสร้าง JSON, และ Config
 │
 /public
-└── data                    <-- JSON log ต่อวัน
+└── data                         <-- JSON log data ต่อวัน
 </pre> ```
 
 ## JSON Log Format
@@ -227,24 +210,20 @@ Response ตัวอย่าง (JSON):
     "machine": "CNC-MAZ-2XN-010",
     "timeline": [
       {
+        "portid": 188,
+        "machine": "CNC-MAZ-2XN-010",
         "start_date": "2025-08-30",
-        "start_time": "06:25:24",
-        "end_date": "2025-09-01",
-        "end_time": "11:22:40",
-        "start_epoch": "1756509924",
-        "end_epoch": "1756700560",
-        "status_name": "UNDEFINED"
-      },
-      {
-        "start_date": "2025-09-01",
-        "start_time": "11:22:40",
-        "end_date": "2025-09-01",
-        "end_time": "11:23:38",
-        "start_epoch": "1756700560",
-        "end_epoch": "1756700618",
+        "start_time": "00:01:34",
+        "end_date": "2025-08-30",
+        "end_time": "01:07:10",
+        "start_epoch": "1756486894",
+        "end_epoch": "1756490830",
+        "state": "CLOSED",
         "status_name": "Stop"
-      }
+      },
+      ...
     ]
-  }
+  },
+  ...
 ]
 </pre> ```
