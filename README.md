@@ -167,33 +167,55 @@ Timeline 30/08/2025 - 01/09/2025
 - `showDuration`: แสดงเวลาช่วงสถานะ `undefined` หรือไม่ (ค่าเริ่มต้น: `true`)
 - `showTotalTime`: แสดงเวลารวมของช่วง `undefined` หรือไม่ (ค่าเริ่มต้น: `false`)
 
+| ชื่อพารามิเตอร์     | ประเภท    | ค่าที่รับ                            | คำอธิบาย                                                | ตัวอย่างค่า                                                 |
+|----------------------|-----------|--------------------------------------|----------------------------------------------------------|--------------------------------------------------------------|
+| `log`               | object    | ข้อมูล log ของเครื่องจักร          | เป็นข้อมูล array ของช่วงเวลาสถานะ เช่น run/stop/etc.   | `mockMachineLogs`                                            |
+| `startDate`         | string    | วันที่เริ่มแสดงข้อมูล               | ใช้รูปแบบ `YYYY-MM-DD`                                   | `'2025-09-03'`                                               |
+| `numDays`           | number    | จำนวนวัน                            | จำนวนวันของ timeline ที่จะแสดง                          | `1`                                                          |
+| `chartHeight`       | number    | ความสูงของกราฟ                      | ความสูงของแถบแสดงสถานะเครื่อง                          | `50`                                                         |
+| `startHour`         | string    | เวลาเริ่มต้น                        | เวลาเริ่มของ shift (รูปแบบ `HH:mm:ss`)                  | `'08:00:00'`                                                 |
+| `endHour`           | string    | เวลาสิ้นสุด                         | เวลาเลิกงาน/จบ shift (รูปแบบ `HH:mm:ss`)                | `'08:00:00'`                                                 |
+| `showTooltip`       | boolean   | แสดง tooltip หรือไม่                | ถ้า `true` แสดง tooltip เมื่อ hover                     | `true`                                                       |
+| `showTimeScale`     | boolean   | แสดงแถบเวลา                        | แสดงแถบเวลาแนวนอนด้านล่างของกราฟ                      | `true`                                                       |
+| `highlightRanges`   | array     | ช่วงเวลาพัก                         | ช่วงเวลาที่ต้องเน้นพิเศษ เช่น พักเบรก                  | `[ { start: '12:00:00', end: '13:00:00', color: '#FFD600' } ]` |
+| `statusColorMap`    | object    | แมพสีของสถานะ                      | กำหนดสีตามสถานะ เช่น run/stop/undefined                | `{ Run: '#509151ff', Stop: '#c9665fff', UNDEFINED: '#3c3c3cff' }` |
+| `paddingLeft`       | number    | ช่องว่างซ้าย                        | Padding ทางซ้ายของกราฟ (px)                             | `30`                                                         |
+| `paddingRight`      | number    | ช่องว่างขวา                         | Padding ทางขวาของกราฟ (px)                              | `30`                                                         |
+| `showDuration`      | boolean   | แสดงเวลาช่วง UNDEFINED             | แสดง label เวลาใน block undefined                       | `true`                                                       |
+| `showTotalTime`     | boolean   | รวมเวลาพักในช่วง undefined หรือไม่ | ถ้า `true` นับรวมเวลาพัก, ถ้า `false` หักพักออกก่อนนับ | `false`                                                      |
+
+
 ### ตัวอย่างการใช้ MachineItem component:
 ```tsx
 <MachineItem
-  log={log}
-  startDate="2025-08-30"
-  numDays={3}
-  chartHeight={70}
-  startHour="08:00:00"
-  endHour="16:00:00"
-  showTooltip={true}
-  showTimeScale={true}
-  highlightRanges={[
-    {
-      start: "10:00:00",
-      end: "10:30:00",
-      color: "#FF0000"
-    }
-  ]}
-  statusColorMap={{
-    RUN: "green",
-    STOP: "red",
-    UNDEFINED: "gray"
-  }}
-  paddingLeft={40}
-  paddingRight={40}
-  showDuration={true}
-  showTotalTime={false}
+  log={log}                     // (1) ข้อมูล JSON
+  startDate={startDate}         // (2) วันที่เริ่มต้น YYYY-MM-DD
+  numDays={numDays}             // (3) จำนวนวันที่ต้องการ 
+  chartHeight={50}              // (4) ความสูงของตัว Timeline
+  startHour="08:00:00"          // (5) เวลาเริ่มต้นของวัน
+  endHour="08:00:00"            // (6) เวลาสิ้นสุดของวัน
+  showTooltip={true}            // (7) แสดงทูลทิป
+  showTimeScale={true}          // (8) แสดงเวลา
+  highlightRanges = {[          // (9) เวลาพัก
+        { start: '00:00:00', end: '01:00:00', color: '#FFD600' },
+        { start: '03:00:00', end: '03:15:00', color: '#FFD600' },
+        { start: '05:00:00', end: '05:30:00', color: '#FFD600' },
+        { start: '10:00:00', end: '10:15:00', color: '#FFD600' },
+        { start: '12:00:00', end: '13:00:00', color: '#FFD600' },
+        { start: '17:00:00', end: '17:30:00', color: '#FFD600' },
+        { start: '22:00:00', end: '22:15:00', color: '#FFD600' },
+    ]}
+  statusColorMap = {{           // (10) สีของสถานะต่าง
+        Run: '#509151ff',
+        Stop: '#c9665fff',
+        UNDEFINED: '#3c3c3cff',
+    }}
+  paddingLeft={30}              // (11) ช่องว่างกับขอบทางซ้าย
+  paddingRight={30}             // (12) ช่องว่ากับของทางขวา
+  showDuration={true}           // (13) แสดงเวลา UNDEFINED
+  showTotalTime={false}         // (14) เวลา UNDEFINEDม 
+                                // true แสดงต่อเนื่องรวมเวลาพัก, 
+                                // false เริ่มนับใหม่หลังเวลาพัก
 />
 ```
 
