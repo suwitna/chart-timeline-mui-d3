@@ -166,7 +166,6 @@ Timeline 30/08/2025 - 01/09/2025
 - `showTotalTime`: แสดงเวลารวมของช่วง `undefined` หรือไม่ (ค่าเริ่มต้น: `false`)
 
 ### ตัวอย่างการใช้ MachineItem component:
-<pre>
 ```tsx
 <MachineItem
   log={log}
@@ -194,7 +193,7 @@ Timeline 30/08/2025 - 01/09/2025
   showDuration={true}
   showTotalTime={false}
 />
-</pre> ```
+```
 
 
 ### ตัวอย่างการเรียก API
