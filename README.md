@@ -83,7 +83,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 │
 /public
 └── data                    <-- JSON log ต่อวัน
-``` </pre>
+</pre> ```
 
 ## JSON Log Format
 
@@ -178,7 +178,11 @@ Timeline 30/08/2025 - 01/09/2025
   showTooltip={true}
   showTimeScale={true}
   highlightRanges={[
-    { start: "10:00:00", end: "10:30:00", color: "#FF0000" }
+    {
+      start: "10:00:00",
+      end: "10:30:00",
+      color: "#FF0000"
+    }
   ]}
   statusColorMap={{
     RUN: "green",
@@ -190,7 +194,7 @@ Timeline 30/08/2025 - 01/09/2025
   showDuration={true}
   showTotalTime={false}
 />
-``` </pre>
+</pre> ```
 
 
 ### ตัวอย่างการเรียก API
@@ -198,6 +202,7 @@ GET /api/json-log?date=2025-08-30&days=3
 
 Response ตัวอย่าง (JSON):
 
+<pre>
 ```json
 [
   {
@@ -224,3 +229,4 @@ Response ตัวอย่าง (JSON):
     ]
   }
 ]
+</pre> ```
