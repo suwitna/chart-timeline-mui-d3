@@ -144,12 +144,45 @@ Timeline 30/08/2025 - 01/09/2025
 
 ### Props ที่ใช้ส่งเข้า `MachineItem` component
 
-- `log`: ข้อมูล timeline ของเครื่องจักร (หนึ่งใน array ของ logs)
+- `log`: ข้อมูล **timeline** ของเครื่องจักร (หนึ่งใน array ของ logs)
 - `startDate`: วันที่เริ่มต้น (เช่น `"2025-08-30"`)
 - `numDays`: จำนวนวันที่ต้องการแสดง
-- `showDuration`: แสดงเวลาช่วงสถานะ (true/false)
-- `showTotalTime`: แสดงเวลารวม (true/false)
-- `showTooltip`: แสดง tooltip หรือไม่ (true/false)
+- `chartHeight`: ความสูงของกราฟ (ค่าเริ่มต้น: `50`)
+- `startHour`: เวลาเริ่มต้นในแต่ละวัน (ค่าเริ่มต้น: `"00:00:00"`)
+- `endHour`: เวลาสิ้นสุดในแต่ละวัน (ค่าเริ่มต้น: `"23:59:59"`)
+- `showTooltip`: แสดง tooltip หรือไม่ (ค่าเริ่มต้น: `true`)
+- `showTimeScale`: แสดง time scale (แกนเวลา) หรือไม่ (ค่าเริ่มต้น: `true`)
+- `highlightRanges`: ช่วงเวลาที่ต้องการไฮไลต์ใน timeline
+- `statusColorMap`: แผนที่สีสำหรับสถานะต่าง ๆ ของเครื่องจักร (ค่าเริ่มต้น: `defaultStatusColorMap`)
+- `paddingLeft`: ช่องว่างด้านซ้ายของกราฟ (ค่าเริ่มต้น: `30`)
+- `paddingRight`: ช่องว่างด้านขวาของกราฟ (ค่าเริ่มต้น: `30`)
+- `showDuration`: แสดงเวลาช่วงสถานะ `undefined` หรือไม่ (ค่าเริ่มต้น: `true`)
+- `showTotalTime`: แสดงเวลารวมของช่วง `undefined` หรือไม่ (ค่าเริ่มต้น: `false`)
+
+### ตัวอย่างการใช้ MachineItem component:
+<MachineItem
+  log={log}
+  startDate="2025-08-30"
+  numDays={3}
+  chartHeight={70}
+  startHour="08:00:00"
+  endHour="16:00:00"
+  showTooltip={true}
+  showTimeScale={true}
+  highlightRanges={[
+    { start: "10:00:00", end: "10:30:00", color: "#FF0000" }
+  ]}
+  statusColorMap={{
+    RUN: "green",
+    STOP: "red",
+    UNDEFINED: "gray"
+  }}
+  paddingLeft={40}
+  paddingRight={40}
+  showDuration={true}
+  showTotalTime={false}
+/>
+
 
 ### ตัวอย่างการเรียก API
 GET /api/json-log?date=2025-08-30&days=3
