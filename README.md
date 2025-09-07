@@ -63,7 +63,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## 🖼 Screenshot
 
-![screenshot](./screenshot.png)
+![Machine Timeline Screenshot](./public/screenshot.png)
 
 ---
 
