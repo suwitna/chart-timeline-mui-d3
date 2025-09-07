@@ -68,16 +68,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ---
 
 ## 📁 Project Structure
+
+<pre>
+```txt
 /src
-/app
-/machine-log <-- หน้าแสดง timeline
-/api/json-log <-- mock API สำหรับดึง JSON
-/components
-MachineItem.tsx <-- สร้าง timeline graph
-MachineStatusBar.tsx <-- แสดงแถบสีรายสถานะ
-TimeScale.tsx <-- จัดการ scale/time axis
+├── app
+│   ├── machine-log         <-- หน้าแสดง timeline
+│   └── api/json-log        <-- mock API สำหรับดึง JSON
+│
+├── components
+│   ├── MachineItem.tsx     <-- สร้าง timeline graph
+│   ├── MachineStatusBar.tsx <-- แสดงแถบสีรายสถานะ
+│   └── TimeScale.tsx       <-- จัดการ scale/time axis
+│
 /public
-/data <-- JSON log ต่อวัน
+└── data                    <-- JSON log ต่อวัน
+``` </pre>
 
 ## JSON Log Format
 
@@ -160,6 +166,8 @@ Timeline 30/08/2025 - 01/09/2025
 - `showTotalTime`: แสดงเวลารวมของช่วง `undefined` หรือไม่ (ค่าเริ่มต้น: `false`)
 
 ### ตัวอย่างการใช้ MachineItem component:
+<pre>
+```tsx
 <MachineItem
   log={log}
   startDate="2025-08-30"
@@ -182,6 +190,7 @@ Timeline 30/08/2025 - 01/09/2025
   showDuration={true}
   showTotalTime={false}
 />
+``` </pre>
 
 
 ### ตัวอย่างการเรียก API
