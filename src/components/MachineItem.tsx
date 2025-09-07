@@ -465,7 +465,7 @@ export const MachineItem: React.FC<MachineItemProps> = ({
                             height: '60px',
                         }}
                     >
-                        {tooltip.content}
+                        <div dangerouslySetInnerHTML={{ __html: tooltip.content }} />
                     </div>
                 );
             })()}
